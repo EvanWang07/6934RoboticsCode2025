@@ -10,8 +10,9 @@
 **NOTES**:  <br> 
 &ensp;&ensp;1. **ALL** code *ABSOLUTELY* needs to be peer-reviewed **AND** tested!!!  <br>   
 **CREDITS**:  <br> 
-&ensp;&ensp;1. Code Created By: Evan Wang (and soon, others!)  <br> 
-&ensp;&ensp;2. Robot Created By: FRC Robotics Team 6934 (ACHS Scorpions)  <br>   
+&ensp;&ensp;1. Source of Original Code: https://github.com/dirtbikerxz/BaseTalonFXSwerve  <br> 
+&ensp;&ensp;2. Modified Code Created By: Evan Wang (and soon, others!)  <br> 
+&ensp;&ensp;3. Robot Created By: FRC Robotics Team 6934 (ACHS Scorpions)  <br>   
 
 **DRIVER'S GUIDE**:  <br> 
 &ensp;&ensp;1. **DRIVE CONTROLLER** (**PORT 0**):  <br> 
