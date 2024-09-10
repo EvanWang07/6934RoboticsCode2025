@@ -13,9 +13,13 @@ import frc.lib.util.COTSTalonFXSwerveConstants;
 import frc.lib.util.SwerveModuleConstants;
 
 public final class Constants {
-    public static final double stickDeadband = 0.1;
 
     public static final class QuickTuning {
+        /* Controller Constants */
+        public static int driveControllerID = 0;
+        public static final double driveStickDeadband = 0.1;
+
+        /* Quick Swerve Constants */
         public static double translationalOutput = 0.15;
         public static double rotationalOutput = 0.25;
     }
