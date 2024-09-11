@@ -59,6 +59,10 @@ public class Swerve extends SubsystemBase {
         }
     }    
 
+    public void driveRobotRelative(ChassisSpeeds speeds) { // For PathPlanner
+        this.drive(new Translation2d(speeds.vxMetersPerSecond, speeds.vyMetersPerSecond), speeds.omegaRadiansPerSecond, false, false);
+    }
+
     /* Used by SwerveControllerCommand in Auto */
     public void setModuleStates(SwerveModuleState[] desiredStates) {
         SwerveDriveKinematics.desaturateWheelSpeeds(desiredStates, Constants.Swerve.maxSpeed);
