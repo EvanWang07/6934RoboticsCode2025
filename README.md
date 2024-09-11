@@ -1,3 +1,5 @@
+**DESCRIPTION**: The current, 2024-2025 robotics code for FRC team 6934  <br>   
+
 **CHANGELOG**:  <br> 
 &ensp;&ensp;1. Prepared the code for swerve testing  <br>   
 **ISSUES & POTENTIAL ERRORS**:  <br> 
