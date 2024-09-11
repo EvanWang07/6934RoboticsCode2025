@@ -1,14 +1,14 @@
 **DESCRIPTION**: The current, 2024-2025 robotics code for FRC team 6934  <br>   
 
 **CHANGELOG**:  <br> 
-&ensp;&ensp;1. Prepared the code for swerve testing  <br>   
+&ensp;&ensp;1. Prepared the code for swerve testing  <br> 
+&ensp;&ensp;2. Added PathPlanner, connected code, and an autonomous path  <br>   
 **ISSUES & POTENTIAL ERRORS**:  <br> 
 &ensp;&ensp;1. Swerve module angle offsets may need to be corrected (+/- 180 degrees)  <br>   
 **TODO LIST**:  <br> 
-&ensp;&ensp;1. TEST the swerve code & fix potential angle offset errors  <br> 
-&ensp;&ensp;1. Remove exampleAuto.java & ALL connected code  <br>   
+&ensp;&ensp;1. TEST the swerve code & fix potential angle offset errors  <br>   
 **UNUSED CODE**:  <br> 
-&ensp;&ensp;1. exampleAuto.java & Constants.AutoConstants  <br>   
+&ensp;&ensp;1. None for now!  <br>   
 **NOTES**:  <br> 
 &ensp;&ensp;1. **ALL** code *ABSOLUTELY* needs to be peer-reviewed **AND** tested!!!  <br>   
 **CREDITS**:  <br> 
@@ -24,4 +24,4 @@
 &ensp;&ensp;&ensp;&ensp;* Robot-Centric Strafing: *HOLD* Left Bumper + *MOVE* Right Joystick (x)  <br> 
 &ensp;&ensp;&ensp;&ensp;* Reset Gyro (Field-Centric Driving ONLY): *PRESS* Y-Button  <br>   
 
-**LAST UPDATED**: 9/10/24
+**LAST UPDATED**: 9/11/24
