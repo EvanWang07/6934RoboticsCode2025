@@ -7,10 +7,13 @@ import com.ctre.phoenix6.signals.SensorDirectionValue;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
-import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.math.util.Units;
 import frc.lib.util.COTSTalonFXSwerveConstants;
 import frc.lib.util.SwerveModuleConstants;
+
+import com.pathplanner.lib.util.HolonomicPathFollowerConfig;
+import com.pathplanner.lib.util.PIDConstants;
+import com.pathplanner.lib.util.ReplanningConfig;
 
 public final class Constants {
 
@@ -31,6 +34,7 @@ public final class Constants {
         public static final COTSTalonFXSwerveConstants chosenModule = COTSTalonFXSwerveConstants.SDS.MK4i.Falcon500(COTSTalonFXSwerveConstants.SDS.MK4i.driveRatios.L2);
 
         /* Drivetrain Constants */
+        public static final double robotSideLength = Units.inchesToMeters(28);
         public static final double trackWidth = Units.inchesToMeters(22.75); 
         public static final double wheelBase = Units.inchesToMeters(22.875); 
         public static final double wheelCircumference = chosenModule.wheelCircumference;
@@ -138,19 +142,15 @@ public final class Constants {
         }
     }
 
-    public static final class AutoConstants { //TODO: Delete
-        public static final double kMaxSpeedMetersPerSecond = 3;
-        public static final double kMaxAccelerationMetersPerSecondSquared = 3;
-        public static final double kMaxAngularSpeedRadiansPerSecond = Math.PI;
-        public static final double kMaxAngularSpeedRadiansPerSecondSquared = Math.PI;
-    
-        public static final double kPXController = 1;
-        public static final double kPYController = 1;
-        public static final double kPThetaController = 1;
-    
-        /* Constraint for the motion profilied robot angle controller */
-        public static final TrapezoidProfile.Constraints kThetaControllerConstraints =
-            new TrapezoidProfile.Constraints(
-                kMaxAngularSpeedRadiansPerSecond, kMaxAngularSpeedRadiansPerSecondSquared);
+    public static final class AutoConstants { //TODO: Delete unused stuff
+        public static final double maxModuleSpeed = 5; // Max module speed, in m/s
+        public static final double driveBaseRadius = (Swerve.robotSideLength / 2) * Math.sqrt(2);
+        public static final HolonomicPathFollowerConfig pathPlannerConfig = new HolonomicPathFollowerConfig(
+            new PIDConstants(5.0, 0.0, 0.0), // Translation PID constants
+            new PIDConstants(5.0, 0.0, 0.0), // Rotation PID constants
+            maxModuleSpeed, 
+            driveBaseRadius, // Drive base radius in meters. Distance from robot center to furthest module.
+            new ReplanningConfig() // Default path replanning config. See the API for the options here
+        );
     }
 }
