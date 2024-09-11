@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.2020616051410227,
-        "y": 7.384189017741904
+        "x": 2.1325832450712237,
+        "y": 6.564391793358167
       },
       "isLocked": false,
       "linkedName": null
@@ -20,11 +20,11 @@
         "y": 8.0
       },
       "prevControl": {
-        "x": 3.3587191197643897,
+        "x": 3.4299999999999997,
         "y": 8.0
       },
       "nextControl": {
-        "x": 6.077400747219219,
+        "x": 6.57,
         "y": 8.0
       },
       "isLocked": false,
@@ -37,11 +37,11 @@
       },
       "prevControl": {
         "x": 8.0,
-        "y": 6.62
+        "y": 6.57
       },
       "nextControl": {
         "x": 8.0,
-        "y": 3.269072244463749
+        "y": 3.4299999999999997
       },
       "isLocked": false,
       "linkedName": null
@@ -52,11 +52,11 @@
         "y": 2.0
       },
       "prevControl": {
-        "x": 6.527546949751332,
+        "x": 6.57,
         "y": 2.0
       },
       "nextControl": {
-        "x": 3.3300486837667584,
+        "x": 3.4299999999999997,
         "y": 2.0
       },
       "isLocked": false,
@@ -68,15 +68,56 @@
         "y": 5.0
       },
       "prevControl": {
-        "x": 1.9999999999999998,
-        "y": 2.172562836540182
+        "x": 2.0,
+        "y": 3.4299999999999997
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": null
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": 90.0,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 1.0,
+      "rotationDegrees": 180.0,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 1.5,
+      "rotationDegrees": -90.0,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 2.0,
+      "rotationDegrees": 0.0,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 2.5,
+      "rotationDegrees": 90.0,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 3.0,
+      "rotationDegrees": 180.0,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 3.5,
+      "rotationDegrees": -90.0,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 4.0,
+      "rotationDegrees": 0.0,
+      "rotateFast": false
+    }
+  ],
   "constraintZones": [],
   "eventMarkers": [],
   "globalConstraints": {
