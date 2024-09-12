@@ -1,12 +1,14 @@
 **DESCRIPTION**: The current, 2024-2025 robotics code for FRC team 6934  <br>   
 
 **CHANGELOG**:  <br> 
-&ensp;&ensp;1. Prepared the code for swerve testing  <br> 
-&ensp;&ensp;2. Added PathPlanner, connected code, and an autonomous path  <br>   
+&ensp;&ensp;1. Tested the code for swerve (teleop)  <br> 
+&ensp;&ensp;2. Fixed angle offset values  <br> 
+&ensp;&ensp;3. Added PathPlanner, connected code, and an autonomous path  <br>   
 **ISSUES & POTENTIAL ERRORS**:  <br> 
-&ensp;&ensp;1. Swerve module angle offsets may need to be corrected (+/- 180 degrees)  <br>   
+&ensp;&ensp;1. Swerve drive drifting without user input  <br>   
 **TODO LIST**:  <br> 
-&ensp;&ensp;1. TEST the swerve code & fix potential angle offset errors  <br>   
+&ensp;&ensp;1. DETERMINE the cause of teleop swerve drifting issues  <br> 
+&ensp;&ensp;2. TEST the autonomous swerve drive path  <br>   
 **UNUSED CODE**:  <br> 
 &ensp;&ensp;1. None for now!  <br>   
 **NOTES**:  <br> 
