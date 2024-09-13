@@ -2,12 +2,11 @@
 
 **CHANGELOG**:  <br> 
 &ensp;&ensp;1. Tested the code for swerve (teleop)  <br> 
-&ensp;&ensp;2. Fixed angle offset values  <br> 
+&ensp;&ensp;2. Fixed angle offset values (for real)  <br> 
 &ensp;&ensp;3. Added PathPlanner, connected code, and an autonomous path  <br>   
 **ISSUES & POTENTIAL ERRORS**:  <br> 
-&ensp;&ensp;1. Swerve drive drifting without user input  <br>   
+&ensp;&ensp;1. Increasing output % decreases speed & vice versa  <br>   
 **TODO LIST**:  <br> 
-&ensp;&ensp;1. DETERMINE the cause of teleop swerve drifting issues  <br> 
 &ensp;&ensp;2. TEST the autonomous swerve drive path  <br>   
 **UNUSED CODE**:  <br> 
 &ensp;&ensp;1. None for now!  <br>   
@@ -26,4 +25,4 @@
 &ensp;&ensp;&ensp;&ensp;* Robot-Centric Strafing: *HOLD* Left Bumper + *MOVE* Right Joystick (x)  <br> 
 &ensp;&ensp;&ensp;&ensp;* Reset Gyro (Field-Centric Driving ONLY): *PRESS* Y-Button  <br>   
 
-**LAST UPDATED**: 9/11/24
+**LAST UPDATED**: 9/12/24

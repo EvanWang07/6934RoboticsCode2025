@@ -23,7 +23,7 @@ public final class Constants {
         public static final double driveStickDeadband = 0.1;
 
         /* Quick Swerve Constants */
-        public static double translationalOutput = 0.05;
+        public static double translationalOutput = 0.05; // Lower = Faster (BUG)
         public static double rotationalOutput = 0.25;
     }
 
