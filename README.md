@@ -2,12 +2,12 @@
 
 **CHANGELOG**:  <br> 
 &ensp;&ensp;1. Added limelight code  <br> 
-&ensp;&ensp;2. Fixed angle offset values (for real)  <br> 
+&ensp;&ensp;2. Fixed changing output % doing the opposite as intended (hopefully)  <br> 
 &ensp;&ensp;3. Added PathPlanner, connected code, and an autonomous path  <br>   
 **ISSUES & POTENTIAL ERRORS**:  <br> 
-&ensp;&ensp;1. Increasing output % decreases speed & vice versa  <br>   
+&ensp;&ensp;1. Autonomous swerve drive path continuously failed to work as intended  <br>   
 **TODO LIST**:  <br> 
-&ensp;&ensp;2. TEST the autonomous swerve drive path  <br>   
+&ensp;&ensp;2. FIX autonomous swerve  <br>   
 **UNUSED CODE**:  <br> 
 &ensp;&ensp;1. None for now!  <br>   
 **NOTES**:  <br> 
@@ -25,4 +25,4 @@
 &ensp;&ensp;&ensp;&ensp;* Robot-Centric Strafing: *HOLD* Left Bumper + *MOVE* Right Joystick (x)  <br> 
 &ensp;&ensp;&ensp;&ensp;* Reset Gyro (Field-Centric Driving ONLY): *PRESS* Y-Button  <br>   
 
-**LAST UPDATED**: 11/4/24
+**LAST UPDATED**: 11/5/24
