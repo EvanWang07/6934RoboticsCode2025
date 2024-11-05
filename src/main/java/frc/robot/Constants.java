@@ -23,8 +23,7 @@ public final class Constants {
         public static final double driveStickDeadband = 0.1;
 
         /* Quick Swerve Constants */
-        public static double translationalOutput = 0.05;
-        public static double rotationalOutput = 0.1;
+        public static double driveOutput = 0.2;
     }
 
     public static final class Vision {
@@ -102,9 +101,9 @@ public final class Constants {
 
         /* Swerve Profiling Values */
         /** Meters per Second */
-        public static final double maxSpeed = 5 * QuickTuning.translationalOutput;
+        public static final double maxSpeed = 5;
         /** Radians per Second */
-        public static final double maxAngularVelocity =  3 * Math.PI * QuickTuning.rotationalOutput;
+        public static final double maxAngularVelocity =  3 * Math.PI;
 
         /* Neutral Modes */
         public static final NeutralModeValue angleNeutralMode = NeutralModeValue.Coast;
