@@ -59,6 +59,6 @@ public class RobotContainer {
 
     /* Autonomous Code */
     public Command getAutonomousCommand() {
-        return new PathPlannerAuto("Circle Auto");
+        return new PathPlannerAuto("Mini Auto");
     }
 }

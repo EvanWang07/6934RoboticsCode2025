@@ -23,8 +23,17 @@ public final class Constants {
         public static final double driveStickDeadband = 0.1;
 
         /* Quick Swerve Constants */
-        public static double translationalOutput = 0.05; // Lower = Faster (BUG)
-        public static double rotationalOutput = 0.25;
+        public static double driveOutput = 0.05; // Lower = Faster (BUG)
+    }
+
+    public static final class Vision {
+        public static final String limelightName = "scorps";
+        public static final double limelightAngle = 0; // Angle between the ground and the limelight's orientation
+        public static final double limelightHeight = 0;
+
+        public static final double targetAHeight = 0;
+        public static final double targetBHeight = 0;
+        public static final double targetCHeight = 0;
     }
 
     public static final class Swerve {
@@ -92,9 +101,9 @@ public final class Constants {
 
         /* Swerve Profiling Values */
         /** Meters per Second */
-        public static final double maxSpeed = 5 * QuickTuning.translationalOutput;
+        public static final double maxSpeed = 5;
         /** Radians per Second */
-        public static final double maxAngularVelocity =  4 * Math.PI * QuickTuning.rotationalOutput; // Originally 10
+        public static final double maxAngularVelocity =  4 * Math.PI; // Originally 10
 
         /* Neutral Modes */
         public static final NeutralModeValue angleNeutralMode = NeutralModeValue.Coast;
@@ -143,7 +152,7 @@ public final class Constants {
     }
 
     public static final class AutoConstants {
-        public static final double maxModuleSpeed = 5; // Max module speed, in m/s
+        public static final double maxModuleSpeed = 4.5; // Max module speed, in m/s
         public static final double driveBaseRadius = (Swerve.robotSideLength / 2) * Math.sqrt(2);
         public static final HolonomicPathFollowerConfig pathPlannerConfig = new HolonomicPathFollowerConfig(
             new PIDConstants(5.0, 0.0, 0.0), // Translation PID constants

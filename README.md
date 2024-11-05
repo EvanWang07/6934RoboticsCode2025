@@ -1,7 +1,7 @@
 **DESCRIPTION**: The current, 2024-2025 robotics code for FRC team 6934  <br>   
 
 **CHANGELOG**:  <br> 
-&ensp;&ensp;1. Tested the code for swerve (teleop)  <br> 
+&ensp;&ensp;1. Added limelight code  <br> 
 &ensp;&ensp;2. Fixed angle offset values (for real)  <br> 
 &ensp;&ensp;3. Added PathPlanner, connected code, and an autonomous path  <br>   
 **ISSUES & POTENTIAL ERRORS**:  <br> 
@@ -25,4 +25,4 @@
 &ensp;&ensp;&ensp;&ensp;* Robot-Centric Strafing: *HOLD* Left Bumper + *MOVE* Right Joystick (x)  <br> 
 &ensp;&ensp;&ensp;&ensp;* Reset Gyro (Field-Centric Driving ONLY): *PRESS* Y-Button  <br>   
 
-**LAST UPDATED**: 9/12/24
+**LAST UPDATED**: 11/4/24

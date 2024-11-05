@@ -1,6 +1,7 @@
 package frc.robot;
 
 import frc.robot.Constants.Swerve;
+import frc.robot.Constants.QuickTuning;
 
 import com.ctre.phoenix6.controls.DutyCycleOut;
 import com.ctre.phoenix6.controls.PositionVoltage;
@@ -59,7 +60,7 @@ public class SwerveModule {
 
     private void setSpeed(SwerveModuleState desiredState, boolean isOpenLoop){
         if(isOpenLoop){
-            driveDutyCycle.Output = desiredState.speedMetersPerSecond / Constants.Swerve.maxSpeed;
+            driveDutyCycle.Output = (desiredState.speedMetersPerSecond * QuickTuning.driveOutput) / Constants.Swerve.maxSpeed;
             mDriveMotor.setControl(driveDutyCycle);
         }
         else {
