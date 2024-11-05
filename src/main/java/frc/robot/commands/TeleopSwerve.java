@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import frc.robot.Constants;
+import frc.robot.VisionInfo;
 import frc.robot.Constants.*;
 import frc.robot.subsystems.Swerve;
 
@@ -18,8 +19,9 @@ public class TeleopSwerve extends Command {
     private DoubleSupplier strafeSup;
     private DoubleSupplier rotationSup;
     private BooleanSupplier robotCentricSup;
+    private BooleanSupplier visionSup;
 
-    public TeleopSwerve(Swerve s_Swerve, DoubleSupplier translationSup, DoubleSupplier strafeSup, DoubleSupplier rotationSup, BooleanSupplier robotCentricSup) {
+    public TeleopSwerve(Swerve s_Swerve, DoubleSupplier translationSup, DoubleSupplier strafeSup, DoubleSupplier rotationSup, BooleanSupplier robotCentricSup, BooleanSupplier visionSup) {
         this.s_Swerve = s_Swerve;
         addRequirements(s_Swerve);
 
@@ -27,6 +29,7 @@ public class TeleopSwerve extends Command {
         this.strafeSup = strafeSup;
         this.rotationSup = rotationSup;
         this.robotCentricSup = robotCentricSup;
+        this.visionSup = visionSup;
     }
 
     @Override
@@ -35,13 +38,42 @@ public class TeleopSwerve extends Command {
         double translationVal = MathUtil.applyDeadband(translationSup.getAsDouble(), QuickTuning.driveStickDeadband);
         double strafeVal = MathUtil.applyDeadband(strafeSup.getAsDouble(), QuickTuning.driveStickDeadband);
         double rotationVal = MathUtil.applyDeadband(rotationSup.getAsDouble(), QuickTuning.driveStickDeadband);
+        boolean activateVision = visionSup.getAsBoolean();
 
-        /* Drive */
-        s_Swerve.drive(
-            new Translation2d(translationVal, strafeVal).times(Constants.Swerve.maxSpeed), 
-            rotationVal * Constants.Swerve.maxAngularVelocity, 
-            !robotCentricSup.getAsBoolean(), 
-            true
-        ); // Maybe isOpenLoop = false is better?
+        /* Vision (if active) changing values */
+        if (activateVision) {
+            if (VisionInfo.hasValidTargets()) {
+                if (VisionInfo.isHorizontallyAligned()) {
+                    if (!VisionInfo.isVerticallyAligned()) {
+                        translationVal = VisionInfo.getTranslationalCorrectionOutput();
+                        strafeVal = 0;
+                        rotationVal = 0;
+                    }
+                } else {
+                    translationVal = 0;
+                    strafeVal = 0;
+                    rotationVal = VisionInfo.getRotationalCorrectionOutput();
+                }
+            } else {
+                translationVal = 0;
+                strafeVal = 0;
+                rotationVal = Vision.targetSearchOutput;
+            }
+            /* Drive (Robot-Oriented ONLY) */
+            s_Swerve.drive(
+                new Translation2d(translationVal, strafeVal).times(Constants.Swerve.maxSpeed), 
+                rotationVal * Constants.Swerve.maxAngularVelocity, 
+                false, 
+                true
+            );
+        } else {
+            /* Drive (Field-/Robot-Oriented) */
+            s_Swerve.drive(
+                new Translation2d(translationVal, strafeVal).times(Constants.Swerve.maxSpeed), 
+                rotationVal * Constants.Swerve.maxAngularVelocity, 
+                !robotCentricSup.getAsBoolean(), 
+                true
+            );
+        }
     }
 }

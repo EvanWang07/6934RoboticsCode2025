@@ -19,12 +19,13 @@ public class RobotContainer {
     private final Joystick driver = new Joystick(QuickTuning.driveControllerID);
 
     /* Drive Controls */
-    private final int translationAxis = XboxController.Axis.kLeftY.value;
-    private final int strafeAxis = XboxController.Axis.kLeftX.value;
+    private final int translationAxis = XboxController.Axis.kLeftY.value; // Translation = Y
+    private final int strafeAxis = XboxController.Axis.kLeftX.value; // Strafe = X
     private final int rotationAxis = XboxController.Axis.kRightX.value;
 
     /* Driver Buttons */
     private final JoystickButton zeroGyro = new JoystickButton(driver, XboxController.Button.kY.value);
+    private final JoystickButton useVision = new JoystickButton(driver, XboxController.Button.kA.value);
     private final JoystickButton robotCentric = new JoystickButton(driver, XboxController.Button.kLeftBumper.value);
 
     /* Subsystems */
@@ -42,7 +43,8 @@ public class RobotContainer {
                 () -> -driver.getRawAxis(translationAxis), 
                 () -> -driver.getRawAxis(strafeAxis), 
                 () -> -driver.getRawAxis(rotationAxis), 
-                () -> robotCentric.getAsBoolean()
+                () -> robotCentric.getAsBoolean(), 
+                () -> useVision.getAsBoolean()
             )
         );
 

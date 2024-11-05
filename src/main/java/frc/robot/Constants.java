@@ -23,14 +23,27 @@ public final class Constants {
         public static final double driveStickDeadband = 0.1;
 
         /* Quick Swerve Constants */
-        public static double driveOutput = 0.2;
+        public static double driveOutputPercent = 0.2; // Multiplies maxSpeed (currently 5)
+        public static double rotationOutputPercent = 0.2; // Multiplies maxAngularVelocity (currently 3PI)
     }
 
     public static final class Vision {
         public static final String limelightName = "scorps";
         public static final double limelightAngle = 0; // Angle between the ground and the limelight's orientation
-        public static final double limelightHeight = 0;
+        public static final double limelightHeight = 0; // Height the limelight is above the ground
 
+        public static final double TXTolerance = 0; // Degrees
+        public static final double TYTolerance = 0; // Degrees
+        public static final double TATolerance = 0; // Percent (NOT USED)
+
+        /* Finding Targets & Target Horizontal Alignment */
+        public static final double targetSearchOutput = 0.1;
+        public static final double visionAngleKP = 0.05;
+
+        /* Target Vertical Alignment */
+        public static final double visionTranslationKP = 0.05;
+
+        /* Heights of each target above the ground */
         public static final double targetAHeight = 0;
         public static final double targetBHeight = 0;
         public static final double targetCHeight = 0;
@@ -101,9 +114,9 @@ public final class Constants {
 
         /* Swerve Profiling Values */
         /** Meters per Second */
-        public static final double maxSpeed = 5;
+        public static final double maxSpeed = 5 * QuickTuning.driveOutputPercent;
         /** Radians per Second */
-        public static final double maxAngularVelocity =  3 * Math.PI;
+        public static final double maxAngularVelocity =  3 * Math.PI * QuickTuning.rotationOutputPercent;
 
         /* Neutral Modes */
         public static final NeutralModeValue angleNeutralMode = NeutralModeValue.Coast;
