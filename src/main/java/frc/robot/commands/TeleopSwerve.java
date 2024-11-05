@@ -59,7 +59,7 @@ public class TeleopSwerve extends Command {
                 strafeVal = 0;
                 rotationVal = Vision.targetSearchOutput;
             }
-            /* Drive (Robot-Oriented ONLY) */
+            /* Drive (Robot-Oriented ONLY [because of limelight]) */
             s_Swerve.drive(
                 new Translation2d(translationVal, strafeVal).times(Constants.Swerve.maxSpeed), 
                 rotationVal * Constants.Swerve.maxAngularVelocity, 

@@ -14,17 +14,19 @@ public final class VisionInfo {
     public static double getTX(boolean asOutput) { // Gets the horizontal angle error
         tx = LimelightHelpers.getTX(Vision.limelightName);
         if (asOutput) {
-            tx /= 31;
+            return (tx / 31);
+        } else {
+            return tx;
         }
-        return tx;
     }
 
     public static double getTY(boolean asOutput) { // Gets the vertical angle error
         ty = LimelightHelpers.getTY(Vision.limelightName);
         if (asOutput) {
-            ty /= 31;
+            return (ty / 31);
+        } else { 
+            return ty;
         }
-        return ty;
     }
 
     public static boolean hasValidTargets() { // Determines if there is a valid limelight target
@@ -32,12 +34,13 @@ public final class VisionInfo {
         return tv;
     }
 
-    public static double getTA(boolean asOutput) { // Gets the % of the camera frame the target takes up
+    public static double getTA(boolean asOutput) { // Gets the % of the camera frame the target takes up (NOT USED)
         ta = LimelightHelpers.getTA(Vision.limelightName);
         if (asOutput) {
-            ta /= 100;
+            return (ta / 100);
+        } else {
+            return ta;
         }
-        return ta;
     }
 
     public static void switchPipeline(int newPipeline) { // Swaps the camera "mode" (used if there are multiple targets)
@@ -50,22 +53,22 @@ public final class VisionInfo {
         return distance;
     }
 
-    public static boolean isHorizontallyAligned() {
+    public static boolean isHorizontallyAligned() { // Checks robot alignment with the target along the x-axis
         boolean aligned = Math.abs(getTX(false)) < Vision.TXTolerance;
         return aligned;
     }
 
-    public static boolean isVerticallyAligned() {
+    public static boolean isVerticallyAligned() { // Checks robot alignment with the target along the y-axis
         boolean aligned = Math.abs(getTY(false)) < Vision.TYTolerance;
         return aligned;
     }
 
-    public static double getRotationalCorrectionOutput() {
+    public static double getRotationalCorrectionOutput() { // Gives an rotational output value to correct tx
         double correctionOutput = getTX(true) * Vision.visionAngleKP;
         return correctionOutput;
     }
 
-    public static double getTranslationalCorrectionOutput() {
+    public static double getTranslationalCorrectionOutput() { // Gives a translational output value to correct ty
         double correctionOutput = getTY(true) * Vision.visionTranslationKP;
         return correctionOutput;
     }
