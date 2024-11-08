@@ -1,7 +1,7 @@
 **DESCRIPTION**: The current, 2024-2025 robotics code for FRC team 6934  <br>   
 
 **CHANGELOG**:  <br> 
-&ensp;&ensp;1. Added limelight code  <br> 
+&ensp;&ensp;1. Improved the limelight code  <br> 
 &ensp;&ensp;2. Fixed changing output % doing the opposite as intended (hopefully)  <br> 
 &ensp;&ensp;3. Added PathPlanner, connected code, and an autonomous path  <br>   
 **ISSUES & POTENTIAL ERRORS**:  <br> 

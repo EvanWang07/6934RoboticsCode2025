@@ -38,42 +38,30 @@ public class TeleopSwerve extends Command {
         double translationVal = MathUtil.applyDeadband(translationSup.getAsDouble(), QuickTuning.driveStickDeadband);
         double strafeVal = MathUtil.applyDeadband(strafeSup.getAsDouble(), QuickTuning.driveStickDeadband);
         double rotationVal = MathUtil.applyDeadband(rotationSup.getAsDouble(), QuickTuning.driveStickDeadband);
+        boolean isFieldCentric = !robotCentricSup.getAsBoolean();
         boolean activateVision = visionSup.getAsBoolean();
 
-        /* Vision (if active) changing values */
+        /* Vision (if active) */
         if (activateVision) {
             if (VisionInfo.hasValidTargets()) {
-                if (VisionInfo.isHorizontallyAligned()) {
-                    if (!VisionInfo.isVerticallyAligned()) {
-                        translationVal = VisionInfo.getTranslationalCorrectionOutput();
-                        strafeVal = 0;
-                        rotationVal = 0;
-                    }
-                } else {
-                    translationVal = 0;
-                    strafeVal = 0;
-                    rotationVal = VisionInfo.getRotationalCorrectionOutput();
-                }
+                translationVal = VisionInfo.getTranslationalCorrectionOutput();
+                strafeVal = 0;
+                rotationVal = VisionInfo.getRotationalCorrectionOutput();
+                isFieldCentric = false; // Limelight needs to use robot-centric swerve
             } else {
                 translationVal = 0;
                 strafeVal = 0;
                 rotationVal = Vision.targetSearchOutput;
+                isFieldCentric = false;
             }
-            /* Drive (Robot-Oriented ONLY [because of limelight]) */
-            s_Swerve.drive(
-                new Translation2d(translationVal, strafeVal).times(Constants.Swerve.maxSpeed), 
-                rotationVal * Constants.Swerve.maxAngularVelocity, 
-                false, 
-                true
-            );
-        } else {
-            /* Drive (Field-/Robot-Oriented) */
-            s_Swerve.drive(
-                new Translation2d(translationVal, strafeVal).times(Constants.Swerve.maxSpeed), 
-                rotationVal * Constants.Swerve.maxAngularVelocity, 
-                !robotCentricSup.getAsBoolean(), 
-                true
-            );
         }
+
+        /* Drive */
+        s_Swerve.drive(
+            new Translation2d(translationVal, strafeVal).times(Constants.Swerve.maxSpeed), 
+            rotationVal * Constants.Swerve.maxAngularVelocity, 
+            isFieldCentric, 
+            true
+        );
     }
 }

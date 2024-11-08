@@ -49,27 +49,35 @@ public final class VisionInfo {
 
     public static double getDistance(double targetHeight) { // Only works for a two-dimensional scenario with flat ground; gets the distance from the target
         double angleInRadians = Units.degreesToRadians(Vision.limelightAngle + getTY(false));
-        double distance = (Vision.limelightHeight - targetHeight) / Math.tan(angleInRadians);
+        double distance = (targetHeight - Vision.limelightHeight) / Math.tan(angleInRadians);
         return distance;
     }
 
-    public static boolean isHorizontallyAligned() { // Checks robot alignment with the target along the x-axis
+    public static boolean isHorizontallyAligned() { // Checks camera alignment with the target along the x-axis
         boolean aligned = Math.abs(getTX(false)) < Vision.TXTolerance;
         return aligned;
     }
 
-    public static boolean isVerticallyAligned() { // Checks robot alignment with the target along the y-axis
+    public static boolean isVerticallyAligned() { // Checks camera alignment with the target along the y-axis
         boolean aligned = Math.abs(getTY(false)) < Vision.TYTolerance;
         return aligned;
     }
 
     public static double getRotationalCorrectionOutput() { // Gives an rotational output value to correct tx
-        double correctionOutput = getTX(true) * Vision.visionAngleKP;
-        return correctionOutput;
+        if (isHorizontallyAligned()) {
+            return 0;
+        } else {
+            double correctionOutput = getTX(true) * Vision.visionAngleKP;
+            return correctionOutput;
+        }
     }
 
     public static double getTranslationalCorrectionOutput() { // Gives a translational output value to correct ty
-        double correctionOutput = getTY(true) * Vision.visionTranslationKP;
-        return correctionOutput;
+        if (isVerticallyAligned()) {
+            return 0;
+        } else {
+            double correctionOutput = getTY(true) * Vision.visionTranslationKP;
+            return correctionOutput;
+        }
     }
 }
