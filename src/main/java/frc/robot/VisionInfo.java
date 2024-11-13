@@ -43,6 +43,12 @@ public final class VisionInfo {
         }
     }
 
+    public static void getSummary() {
+        System.out.println("TX: " + getTX(false));
+        System.out.println("TY: " + getTY(false));
+        System.out.println("Valid Targets: " + hasValidTargets());
+    }
+
     public static void switchPipeline(int newPipeline) { // Swaps the camera "mode" (used if there are multiple targets)
         LimelightHelpers.setPipelineIndex(Vision.limelightName, newPipeline);
     }

@@ -56,6 +56,8 @@ public class TeleopSwerve extends Command {
             }
         }
 
+        VisionInfo.getSummary();
+
         /* Drive */
         s_Swerve.drive(
             new Translation2d(translationVal, strafeVal).times(Constants.Swerve.maxSpeed), 

@@ -29,11 +29,11 @@ public final class Constants {
 
     public static final class Vision {
         public static final String limelightName = "scorps";
-        public static final double limelightAngle = 0; // Angle between the ground and the limelight's orientation
-        public static final double limelightHeight = 0; // Height the limelight is above the ground
+        public static final double limelightAngle = 45; // Angle between the ground and the limelight's orientation
+        public static final double limelightHeight = 10.75; // Height the limelight is above the ground (in)
 
-        public static final double TXTolerance = 0; // Degrees
-        public static final double TYTolerance = 0; // Degrees
+        public static final double TXTolerance = 2.5; // Degrees
+        public static final double TYTolerance = 2.5; // Degrees
         public static final double TATolerance = 0; // Percent (NOT USED)
 
         /* Finding Targets & Target Horizontal Alignment */
@@ -43,8 +43,8 @@ public final class Constants {
         /* Target Vertical Alignment */
         public static final double visionTranslationKP = 0.05;
 
-        /* Heights of each target above the ground */
-        public static final double targetAHeight = 0;
+        /* Heights of each target above the ground (in) */
+        public static final double targetAHeight = 44;
         public static final double targetBHeight = 0;
         public static final double targetCHeight = 0;
     }
