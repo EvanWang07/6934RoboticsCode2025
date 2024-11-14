@@ -1,12 +1,13 @@
 **DESCRIPTION**: The current, 2024-2025 robotics code for FRC team 6934  <br>   
 
 **CHANGELOG**:  <br> 
-&ensp;&ensp;1. Improved the limelight code  <br> 
-&ensp;&ensp;2. Fixed changing output % doing the opposite as intended (hopefully)  <br> 
-&ensp;&ensp;3. Added PathPlanner, connected code, and an autonomous path  <br>   
+&ensp;&ensp;1. Fixed changing output % doing the opposite as intended (hopefully)  <br> 
+&ensp;&ensp;2. Limelight target seeking officially works!  <br> 
+&ensp;&ensp;3. N/A  <br>   
 **ISSUES & POTENTIAL ERRORS**:  <br> 
-&ensp;&ensp;1. Autonomous swerve drive path continuously failed to work as intended  <br>   
+&ensp;&ensp;1. Sometimes, the robot starts oscillating (rotationally) while using limelight target seeking  <br>   
 **TODO LIST**:  <br> 
+&ensp;&ensp;1. Potentially make robot-/field-centric swerve toggleable by a push of a button rather than holding down a button  <br> 
 &ensp;&ensp;2. FIX autonomous swerve  <br>   
 **UNUSED CODE**:  <br> 
 &ensp;&ensp;1. None for now!  <br>   
@@ -23,6 +24,7 @@
 &ensp;&ensp;&ensp;&ensp;* Field-Centric Strafing: *MOVE* Right Joystick (x)  <br> 
 &ensp;&ensp;&ensp;&ensp;* Robot-Centric Driving: *HOLD* Left Bumper + *MOVE* Left Joystick (x & y)  <br> 
 &ensp;&ensp;&ensp;&ensp;* Robot-Centric Strafing: *HOLD* Left Bumper + *MOVE* Right Joystick (x)  <br> 
+&ensp;&ensp;&ensp;&ensp;* Auto-Align: *HOLD* A-Button  <br> 
 &ensp;&ensp;&ensp;&ensp;* Reset Gyro (Field-Centric Driving ONLY): *PRESS* Y-Button  <br>   
 
-**LAST UPDATED**: 11/5/24
+**LAST UPDATED**: 11/13/24
