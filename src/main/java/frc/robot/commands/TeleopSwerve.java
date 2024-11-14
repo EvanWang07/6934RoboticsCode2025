@@ -56,7 +56,7 @@ public class TeleopSwerve extends Command {
             }
         }
 
-        VisionInfo.getSummary();
+        VisionInfo.updateSummaryValues();
 
         /* Drive */
         s_Swerve.drive(

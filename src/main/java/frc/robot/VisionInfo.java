@@ -1,55 +1,48 @@
 package frc.robot;
 
 import edu.wpi.first.math.util.Units;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.Constants.Vision;
-import frc.robot.LimelightHelpers;
 
 public final class VisionInfo {
-    private static double tx;
-    private static double ty;
-    private static boolean tv;
-    private static double ta;
 
     public static double getTX(boolean asOutput) { // Gets the horizontal angle error
-        tx = LimelightHelpers.getTX(Vision.limelightName);
         if (asOutput) {
-            return (tx / 31);
+            return (LimelightHelpers.getTX(Vision.limelightName) / 31);
         } else {
-            return tx;
+            return LimelightHelpers.getTX(Vision.limelightName);
         }
     }
 
     public static double getTY(boolean asOutput) { // Gets the vertical angle error
-        ty = LimelightHelpers.getTY(Vision.limelightName);
         if (asOutput) {
-            return (ty / 31);
+            return (LimelightHelpers.getTY(Vision.limelightName) / 31);
         } else { 
-            return ty;
+            return LimelightHelpers.getTY(Vision.limelightName);
         }
     }
 
     public static boolean hasValidTargets() { // Determines if there is a valid limelight target
-        tv = LimelightHelpers.getTV(Vision.limelightName);
-        return tv;
+        return LimelightHelpers.getTV(Vision.limelightName);
     }
 
     public static double getTA(boolean asOutput) { // Gets the % of the camera frame the target takes up (NOT USED)
-        ta = LimelightHelpers.getTA(Vision.limelightName);
         if (asOutput) {
-            return (ta / 100);
+            return (LimelightHelpers.getTA(Vision.limelightName) / 100);
         } else {
-            return ta;
+            return LimelightHelpers.getTA(Vision.limelightName);
         }
     }
 
-    public static void getSummary() {
-        System.out.println("TX: " + getTX(false));
-        System.out.println("TY: " + getTY(false));
-        System.out.println("Valid Targets: " + hasValidTargets());
+    public static void updateSummaryValues() { // Sends limelight values to SmartDashboard
+        SmartDashboard.putBoolean("Valid Target: ", hasValidTargets());
+        SmartDashboard.putNumber("TA: ", getTA(false));
+        SmartDashboard.putNumber("TX: ", getTX(false));
+        SmartDashboard.putNumber("TY: ", getTY(false));
     }
 
-    public static void switchPipeline(int newPipeline) { // Swaps the camera "mode" (used if there are multiple targets)
+    public static void switchPipeline(int newPipeline) { // Swaps the camera "mode" (used if there are multiple targets) (NOT USED)
         LimelightHelpers.setPipelineIndex(Vision.limelightName, newPipeline);
     }
 

@@ -32,8 +32,8 @@ public final class Constants {
         public static final double limelightAngle = 45; // Angle between the ground and the limelight's orientation
         public static final double limelightHeight = 10.75; // Height the limelight is above the ground (in)
 
-        public static final double TXTolerance = 2.5; // Degrees
-        public static final double TYTolerance = 2.5; // Degrees
+        public static final double TXTolerance = 1; // Degrees
+        public static final double TYTolerance = 1; // Degrees
         public static final double TATolerance = 0; // Percent (NOT USED)
 
         /* Finding Targets & Target Horizontal Alignment */
