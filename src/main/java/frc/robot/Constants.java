@@ -28,7 +28,7 @@ public final class Constants {
     }
 
     public static final class Vision {
-        public static final String limelightName = "scorps";
+        public static final String limelightName = "limelight-scorps";
         public static final double limelightAngle = 45; // Angle between the ground and the limelight's orientation
         public static final double limelightHeight = 10.75; // Height the limelight is above the ground (in)
 

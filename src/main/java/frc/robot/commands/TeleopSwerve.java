@@ -46,7 +46,7 @@ public class TeleopSwerve extends Command {
             if (VisionInfo.hasValidTargets()) {
                 translationVal = VisionInfo.getTranslationalCorrectionOutput();
                 strafeVal = 0;
-                rotationVal = VisionInfo.getRotationalCorrectionOutput();
+                rotationVal = -VisionInfo.getRotationalCorrectionOutput();
                 isFieldCentric = false; // Limelight needs to use robot-centric swerve
             } else {
                 translationVal = 0;
