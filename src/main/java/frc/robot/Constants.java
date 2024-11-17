@@ -19,12 +19,9 @@ public final class Constants {
 
     public static final class QuickTuning {
         /* Controller Constants */
-        public static int driveControllerID = 0;
+        public static final int driveControllerID = 0;
         public static final double driveStickDeadband = 0.1;
-
-        /* Quick Swerve Constants */
-        public static double driveOutputPercent = 0.2; // Multiplies maxSpeed (currently 5)
-        public static double rotationOutputPercent = 0.2; // Multiplies maxAngularVelocity (currently 3PI)
+        public static final double driveSlowModeMultiplier = 0.1;
     }
 
     public static final class Vision {
@@ -44,7 +41,7 @@ public final class Constants {
         public static final double visionTranslationKP = 0.05;
 
         /* Heights of each target above the ground (in) */
-        public static final double targetAHeight = 44;
+        public static final double targetAHeight = 30.875;
         public static final double targetBHeight = 0;
         public static final double targetCHeight = 0;
     }
@@ -114,9 +111,9 @@ public final class Constants {
 
         /* Swerve Profiling Values */
         /** Meters per Second */
-        public static final double maxSpeed = 5 * QuickTuning.driveOutputPercent;
+        public static final double maxSpeed = 5;
         /** Radians per Second */
-        public static final double maxAngularVelocity =  3 * Math.PI * QuickTuning.rotationOutputPercent;
+        public static final double maxAngularVelocity =  3 * Math.PI;
 
         /* Neutral Modes */
         public static final NeutralModeValue angleNeutralMode = NeutralModeValue.Coast;
