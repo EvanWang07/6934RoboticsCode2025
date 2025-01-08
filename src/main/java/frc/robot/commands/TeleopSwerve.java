@@ -43,7 +43,7 @@ public class TeleopSwerve extends Command {
 
         /* Vision (if active) */
         if (activateVision) {
-            if (VisionInfo.hasValidTargets()) {
+            if (VisionInfo.willTarget()) {
                 translationVal = VisionInfo.getTranslationalCorrectionOutput();
                 strafeVal = 0;
                 rotationVal = -VisionInfo.getRotationalCorrectionOutput();

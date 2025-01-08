@@ -28,7 +28,7 @@ public class Swerve extends SubsystemBase {
     private double speedMultiplier;
 
     public Swerve() {
-        gyro = new Pigeon2(Constants.Swerve.pigeonID);
+        gyro = new Pigeon2(Constants.Swerve.pigeonID, Constants.Swerve.canivoreName);
         gyro.getConfigurator().apply(new Pigeon2Configuration());
         gyro.setYaw(0);
 

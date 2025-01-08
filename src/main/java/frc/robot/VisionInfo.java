@@ -3,9 +3,11 @@ package frc.robot;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import frc.robot.BasicOperations;
 import frc.robot.Constants.Vision;
 
 public final class VisionInfo {
+    private static boolean[] targetValidResults = new boolean[Vision.targetDetectionListSize];
 
     public static double getTX(boolean asOutput) { // Gets the horizontal angle error
         if (asOutput) {
@@ -23,8 +25,13 @@ public final class VisionInfo {
         }
     }
 
-    public static boolean hasValidTargets() { // Determines if there is a valid limelight target
+    public static boolean hasValidTargets() { // Determines if there is a valid limelight target at the given time
         return LimelightHelpers.getTV(Vision.limelightName);
+    }
+
+    public static boolean willTarget() { // Determines (by averaging TV values) if the robot will seek a target
+        BasicOperations.insertBooleanToConfinedList(targetValidResults, hasValidTargets());
+        return (BasicOperations.getSuccessRate(targetValidResults) >= Vision.averageTVThreshold);
     }
 
     public static double getTA(boolean asOutput) { // Gets the % of the camera frame the target takes up (NOT USED)
@@ -36,11 +43,11 @@ public final class VisionInfo {
     }
 
     public static void updateSummaryValues() { // Sends limelight values to SmartDashboard
-        SmartDashboard.putBoolean("Valid Target: ", hasValidTargets());
+        SmartDashboard.putBoolean("Can Auto-Align: ", willTarget());
         SmartDashboard.putNumber("TA: ", getTA(false));
         SmartDashboard.putNumber("TX: ", getTX(false));
         SmartDashboard.putNumber("TY: ", getTY(false));
-    }
+    } // Note: Possibly put a more descriptive label
 
     public static void switchPipeline(int newPipeline) { // Swaps the camera "mode" (used if there are multiple targets) (NOT USED)
         LimelightHelpers.setPipelineIndex(Vision.limelightName, newPipeline);
@@ -64,7 +71,7 @@ public final class VisionInfo {
 
     public static double getRotationalCorrectionOutput() { // Gives an rotational output value to correct tx
         if (isHorizontallyAligned()) {
-            return 0;
+            return 0.0;
         } else {
             double correctionOutput = getTX(true) * Vision.visionAngleKP;
             return correctionOutput;
